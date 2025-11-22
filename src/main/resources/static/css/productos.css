@@ -1,0 +1,112 @@
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background: #f8f8ff;
+        padding: 40px;
+        color: #333;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        color: #6146ff;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    /* Tarjeta del formulario */
+    .card {
+        background: #fff;
+        max-width: 500px;
+        margin: auto;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    form label {
+        display: block;
+        margin-top: 15px;
+        color: #6146ff;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #c9bfff;
+        border-radius: 8px;
+        margin-top: 5px;
+        transition: .3s;
+    }
+
+    input:focus {
+        border-color: #6146ff;
+        box-shadow: 0 0 6px rgba(97, 70, 255, 0.4);
+        outline: none;
+    }
+
+    button,
+    .btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 20px;
+        font-size: 1rem;
+        background: linear-gradient(135deg, #6146ff, #8c6bff);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: .3s;
+    }
+
+    button:hover,
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(97, 70, 255, 0.3);
+    }
+
+    /* Tabla */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        margin-top: 25px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    table th {
+        background: #8c6bff;
+        color: white;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    table td {
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+    }
+
+    table tr:nth-child(even) {
+        background: #f4f0ff;
+    }
+
+    a {
+        color: #6146ff;
+        font-weight: bold;
+        text-decoration: none;
+        transition: .3s;
+    }
+
+    a:hover {
+        color: #8c6bff;
+    }
+

@@ -31,9 +31,13 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public ClienteDTO registrarCliente(ClienteCreateDTO dto) {
-        clienteRepository.findByEmail(dto.email()).orElseThrow(() -> new ClienteCorreoEnUsoException());
-        clienteRepository.findByTelefono(dto.telefono()).orElseThrow(() -> new ClienteTelefonoEnUsoException());
+        clienteRepository.findByEmail(dto.email()).ifPresent(c -> {
+            throw new ClienteCorreoEnUsoException();
+        });
 
+        clienteRepository.findByTelefono(dto.telefono()).ifPresent(c -> {
+            throw new ClienteTelefonoEnUsoException();
+        });
         Cliente cliente = Cliente.builder()
                 .nombre(dto.nombre())
                 .apellido(dto.apellido())
@@ -52,9 +56,22 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public ClienteDTO editarCliente(Long id) {
+    public ClienteDTO editarCliente(Long id, ClienteCreateDTO dto) {
         Cliente cliente = clienteRepository.findById(id).orElseThrow();
+        cliente.setNombre(dto.nombre());
+        cliente.setApellido(dto.apellido());
+        cliente.setEmail(dto.email());
+        cliente.setTelefono(dto.telefono());
+        cliente.setDireccion(dto.direccion());
+        clienteRepository.save(cliente);
         return mapToDTO(cliente);
+    }
+
+    @Override
+    public ClienteDTO obtenerClientePorId(Long id) {
+        return clienteRepository.findById(id)
+                .map(this::mapToDTO)
+                .orElseThrow();
     }
 
 }

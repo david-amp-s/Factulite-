@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Factulite - Inicio</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+</head>
+
+<body>
+
+    <header class="header">
+        <h1 class="title">Bienvenido a <span>Factulite</span></h1>
+        <p class="subtitle">Tu sistema simple y rápido de facturación</p>
+    </header>
+
+    <section class="menu">
+        <a th:href="@{/clientes}" class="card">
+            <h2>Clientes</h2>
+            <p>Gestiona tus clientes fácilmente</p>
+        </a>
+
+        <a th:href="@{/productos}" class="card">
+            <h2>Productos</h2>
+            <p>Administra tus productos</p>
+        </a>
+
+        <a href="#" class="card">
+            <h2>Facturas</h2>
+            <p>Crea y consulta facturas</p>
+        </a>
+    </section>
+
+</body>
+
+</html>

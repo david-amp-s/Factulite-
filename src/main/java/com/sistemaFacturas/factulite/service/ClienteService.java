@@ -10,5 +10,7 @@ public interface ClienteService {
 
     List<ClienteDTO> obtenerTodosLosClientes();
 
-    ClienteDTO editarCliente(Long id);
+    ClienteDTO editarCliente(Long id, ClienteCreateDTO dto);
+
+    ClienteDTO obtenerClientePorId(Long id);
 }
