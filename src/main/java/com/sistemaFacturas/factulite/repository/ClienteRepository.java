@@ -1,0 +1,13 @@
+package com.sistemaFacturas.factulite.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.sistemaFacturas.factulite.model.Cliente;
+
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
+    Optional<Cliente> findByEmail(String email);
+    Optional<Cliente> findByTelefono(String telefono);  
+    
+}
