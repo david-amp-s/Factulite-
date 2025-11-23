@@ -11,4 +11,6 @@ public interface FacturaService {
     List<FacturaDTO> obtenerTodasLasFacturas();
 
     List<FacturaDTO> obtenerFacturasPorCliente(Long clienteId);
+
+    void cambiarEstado(Long id);
 }

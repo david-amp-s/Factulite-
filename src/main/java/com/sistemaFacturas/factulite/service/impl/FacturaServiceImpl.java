@@ -76,4 +76,13 @@ public class FacturaServiceImpl implements FacturaService {
         return facturas.stream().map(this::mapToDo).toList();
     }
 
+    @Override
+    public void cambiarEstado(Long id) {
+        Factura factura = facturaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Factura no encontrada"));
+
+        factura.setEstado(!factura.getEstado()); // invierte el estado
+        facturaRepository.save(factura);
+    }
+
 }

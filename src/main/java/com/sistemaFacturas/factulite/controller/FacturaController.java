@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sistemaFacturas.factulite.dto.DetalleFacturaDTO;
 import com.sistemaFacturas.factulite.dto.FacturaCreateDTO;
 import com.sistemaFacturas.factulite.dto.FacturaDTO;
+import com.sistemaFacturas.factulite.service.ClienteService;
 import com.sistemaFacturas.factulite.service.FacturaService;
+import com.sistemaFacturas.factulite.service.ProductoService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -21,6 +24,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class FacturaController {
     private final FacturaService facturaService;
+    private final ProductoService productoService;
+    private final ClienteService clienteService;
 
     // Mostrar todas las facturas
     @GetMapping
@@ -38,13 +43,21 @@ public class FacturaController {
         return "facturas/lista"; // puedes usar la misma vista
     }
 
-    // Formulario para crear factura
     @GetMapping("/crear")
     public String mostrarFormularioCreacion(Model model) {
+
+        var productos = productoService.listarProductos();
+        var clientes = clienteService.obtenerTodosLosClientes(); // 🔥
+
+        model.addAttribute("productos", productos);
+        model.addAttribute("clientes", clientes); // 🔥
+
         model.addAttribute("facturaCreateDTO", new FacturaCreateDTO(
-                0L, // clienteId por defecto
-                List.of() // lista vacía de productos
-        ));
+                0L,
+                productos.stream()
+                        .map(p -> new DetalleFacturaDTO(p.id(), 0))
+                        .toList()));
+
         return "facturas/crear";
     }
 
@@ -54,4 +67,11 @@ public class FacturaController {
         facturaService.crearFactura(dto);
         return "redirect:/facturas";
     }
+
+    @PostMapping("/{id}/cambiar-estado")
+    public String cambiarEstadoFactura(@PathVariable Long id) {
+        facturaService.cambiarEstado(id);
+        return "redirect:/facturas";
+    }
+
 }

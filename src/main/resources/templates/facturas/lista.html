@@ -26,8 +26,17 @@
           <td th:text="${factura.clienteNombre}"></td>
           <td th:text="${factura.fechaEmision}"></td>
           <td th:text="${factura.totalMonto}"></td>
-          <td th:text="${factura.estado} ? 'Activo' : 'Inactivo'"></td>
+          <td th:text="${factura.estado} ? 'Sin cancelar' : 'Cancelada'"></td>
+        
+          <td>
+            <form th:action="@{|/facturas/${factura.id}/cambiar-estado|}" method="post">
+
+              <button type="submit" th:text="${factura.estado} ? 'Cancelar' : 'Reactivar'">
+              </button>
+            </form>
+          </td>
         </tr>
+
       </tbody>
     </table>
   </body>

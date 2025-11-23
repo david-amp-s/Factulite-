@@ -7,27 +7,50 @@
 </head>
 
 <body>
+
     <h1>Crear Nueva Factura</h1>
 
     <form th:action="@{/facturas/crear}" th:object="${facturaCreateDTO}" method="post">
-        <label>Cliente ID:</label>
-        <input type="number" th:field="*{clienteId}" required />
+
+    <label>Cliente:</label>
+    <select th:field="*{clienteId}" required>
+        <option value="" disabled selected>Seleccione un cliente</option>
+        <option th:each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.email}"></option>
+    </select>
+    <br><br>
+
         <br><br>
 
         <h3>Productos</h3>
-        <div th:each="producto, iterStat : *{productos}">
-            <label>Producto ID:</label>
-            <input type="number" th:field="*{productos[__${iterStat.index}__].productoId}" required />
+
+        <div th:each="producto, iterStat : ${productos}">
+
+            <!-- ID del producto -->
+            <input type="hidden" th:field="*{productos[__${iterStat.index}__].productoId}" th:value="${producto.id}" />
+
+            <!-- Nombre -->
+            <span th:text="${producto.nombre}"></span>
+
+            <!-- Stock disponible -->
+            <span style="color:gray;">
+                (Stock: <span th:text="${producto.stock}"></span>)
+            </span>
+
+            <!-- Cantidad -->
             <label>Cantidad:</label>
-            <input type="number" th:field="*{productos[__${iterStat.index}__].cantidad}" required />
+            <input type="number" th:field="*{productos[__${iterStat.index}__].cantidad}" min="0"
+                th:attr="max=${producto.stock}" value="0" />
+
             <br><br>
         </div>
 
         <button type="submit">Crear Factura</button>
+
     </form>
 
     <br>
     <a th:href="@{/facturas}">Volver a la lista</a>
+
 </body>
 
 </html>
