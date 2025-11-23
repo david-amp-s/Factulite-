@@ -110,3 +110,20 @@
         color: #8c6bff;
     }
 
+.btn-volver {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #6146ff, #8c6bff);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(97, 70, 255, 0.25);
+    transition: .3s ease;
+}
+
+.btn-volver:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(97, 70, 255, 0.35);
+}

@@ -29,7 +29,6 @@ public class Factura {
 
     @Column(name = "fecha", nullable = false)
     private LocalDate fecha;
-
     @Column(name = "total", nullable = false)
     private Double total;
 

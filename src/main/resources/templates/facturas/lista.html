@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lista de Facturas</title>
+  </head>
+  <body>
+    <h1>Facturas</h1>
+
+    <a th:href="@{/facturas/crear}">Crear Nueva Factura</a>
+    <br /><br />
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Cliente</th>
+          <th>Fecha</th>
+          <th>Total</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="factura : ${facturas}">
+          <td th:text="${factura.id}"></td>
+          <td th:text="${factura.clienteNombre}"></td>
+          <td th:text="${factura.fechaEmision}"></td>
+          <td th:text="${factura.totalMonto}"></td>
+          <td th:text="${factura.estado} ? 'Activo' : 'Inactivo'"></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

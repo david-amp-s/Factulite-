@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Factura</title>
+</head>
+
+<body>
+    <h1>Crear Nueva Factura</h1>
+
+    <form th:action="@{/facturas/crear}" th:object="${facturaCreateDTO}" method="post">
+        <label>Cliente ID:</label>
+        <input type="number" th:field="*{clienteId}" required />
+        <br><br>
+
+        <h3>Productos</h3>
+        <div th:each="producto, iterStat : *{productos}">
+            <label>Producto ID:</label>
+            <input type="number" th:field="*{productos[__${iterStat.index}__].productoId}" required />
+            <label>Cantidad:</label>
+            <input type="number" th:field="*{productos[__${iterStat.index}__].cantidad}" required />
+            <br><br>
+        </div>
+
+        <button type="submit">Crear Factura</button>
+    </form>
+
+    <br>
+    <a th:href="@{/facturas}">Volver a la lista</a>
+</body>
+
+</html>
