@@ -1,4 +1,4 @@
-/* Estilo general */
+
 body {
     font-family: Arial, sans-serif;
     margin: 40px;
@@ -6,7 +6,7 @@ body {
     color: #333;
 }
 
-/* Título principal */
+
 h1 {
     font-size: 2.2rem;
     color: #6146ff;
@@ -14,7 +14,7 @@ h1 {
     text-align: center;
 }
 
-/* Tabla */
+
 table {
     border-collapse: collapse;
     width: 100%;
@@ -39,7 +39,7 @@ table tr:nth-child(even) {
     background: #f4f0ff;
 }
 
-/* Enlaces */
+
 a {
     text-decoration: none;
     color: #6146ff;
@@ -52,7 +52,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Formularios */
+
 form label {
     display: block;
     font-weight: bold;
@@ -75,7 +75,7 @@ input:focus {
     outline: none;
 }
 
-/* Botón */
+
 button {
     margin-top: 20px;
     padding: 12px 25px;

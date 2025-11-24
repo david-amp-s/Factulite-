@@ -3,8 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <title>Lista de Facturas</title>
+        <link rel="stylesheet" th:href="@{/css/facturas.css}">
   </head>
   <body>
+    <a th:href="@{/}" class="btn-volver">⬅ Volver</a>
     <h1>Facturas</h1>
 
     <a th:href="@{/facturas/crear}">Crear Nueva Factura</a>

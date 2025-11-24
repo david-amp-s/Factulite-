@@ -1,0 +1,150 @@
+/* Reset y fuente */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f8f8ff;
+    padding: 40px;
+    color: #333;
+}
+
+/* Títulos */
+h1 {
+    font-size: 2.2rem;
+    color: #6146ff;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+h3 {
+    margin-top: 20px;
+    color: #6146ff;
+}
+
+/* FORMULARIO */
+form {
+    background: #fff;
+    padding: 25px;
+    max-width: 700px;
+    margin: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #6146ff;
+}
+
+input[type="number"],
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #c9bfff;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    transition: .3s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: #6146ff;
+    box-shadow: 0 0 6px rgba(97, 70, 255, 0.4);
+    outline: none;
+}
+
+/* Botón principal */
+button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #6146ff, #8c6bff);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: .3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(97, 70, 255, 0.3);
+}
+
+/* Enlaces */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #6146ff;
+    font-weight: bold;
+    transition: .3s ease;
+}
+
+a:hover {
+    color: #8c6bff;
+    text-decoration: underline;
+}
+
+/* TABLA */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+th {
+    background: #8c6bff;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f4f0ff;
+}
+
+/* Botoncito de estado */
+table button {
+    padding: 8px 18px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #ff7b7b, #ff4f4f);
+}
+
+table button:hover {
+    box-shadow: 0 4px 10px rgba(255, 79, 79, 0.4);
+    transform: translateY(-2px);
+}
+.btn-volver {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #6146ff, #8c6bff);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(97, 70, 255, 0.25);
+    transition: .3s ease;
+}
+
+.btn-volver:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(97, 70, 255, 0.35);
+}

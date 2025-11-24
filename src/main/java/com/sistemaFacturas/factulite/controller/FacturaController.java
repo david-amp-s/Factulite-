@@ -27,30 +27,28 @@ public class FacturaController {
     private final ProductoService productoService;
     private final ClienteService clienteService;
 
-    // Mostrar todas las facturas
     @GetMapping
     public String listarFacturas(Model model) {
         List<FacturaDTO> facturas = facturaService.obtenerTodasLasFacturas();
         model.addAttribute("facturas", facturas);
-        return "facturas/lista"; // tu template Thymeleaf
+        return "facturas/lista";
     }
 
-    // Mostrar facturas de un cliente específico
     @GetMapping("/cliente/{id}")
     public String facturasPorCliente(@PathVariable("id") Long clienteId, Model model) {
         List<FacturaDTO> facturas = facturaService.obtenerFacturasPorCliente(clienteId);
         model.addAttribute("facturas", facturas);
-        return "facturas/lista"; // puedes usar la misma vista
+        return "facturas/lista";
     }
 
     @GetMapping("/crear")
     public String mostrarFormularioCreacion(Model model) {
 
         var productos = productoService.listarProductos();
-        var clientes = clienteService.obtenerTodosLosClientes(); // 🔥
+        var clientes = clienteService.obtenerTodosLosClientes();
 
         model.addAttribute("productos", productos);
-        model.addAttribute("clientes", clientes); // 🔥
+        model.addAttribute("clientes", clientes);
 
         model.addAttribute("facturaCreateDTO", new FacturaCreateDTO(
                 0L,
@@ -61,7 +59,6 @@ public class FacturaController {
         return "facturas/crear";
     }
 
-    // Guardar factura
     @PostMapping("/crear")
     public String crearFactura(@ModelAttribute FacturaCreateDTO dto) {
         facturaService.crearFactura(dto);

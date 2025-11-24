@@ -19,7 +19,6 @@
         text-align: center;
     }
 
-    /* Tarjeta del formulario */
     .card {
         background: #fff;
         max-width: 500px;
@@ -72,7 +71,7 @@
         box-shadow: 0 6px 15px rgba(97, 70, 255, 0.3);
     }
 
-    /* Tabla */
+    
     table {
         width: 100%;
         border-collapse: collapse;

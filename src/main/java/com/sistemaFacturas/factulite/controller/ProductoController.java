@@ -22,37 +22,25 @@ import lombok.RequiredArgsConstructor;
 public class ProductoController {
     private final ProductoService productoService;
 
-    // -----------------------------
-    // 1. Listar productos
-    // -----------------------------
     @GetMapping
     public String listarProductos(Model model) {
         List<ProductoDTO> productos = productoService.listarProductos();
         model.addAttribute("productos", productos);
-        return "productos/lista"; // Vista lista.html
+        return "productos/lista";
     }
 
-    // -----------------------------
-    // 2. Formulario de nuevo producto
-    // -----------------------------
     @GetMapping("/nuevo")
     public String nuevoProducto(Model model) {
         model.addAttribute("producto", new ProductoCreateDTO("", "", 0.0, 0));
-        return "productos/crear"; // Vista crear.html
+        return "productos/crear";
     }
 
-    // -----------------------------
-    // 3. Guardar producto
-    // -----------------------------
     @PostMapping("/guardar")
     public String guardarProducto(@ModelAttribute("producto") ProductoCreateDTO dto) {
         productoService.registrarProducto(dto);
         return "redirect:/productos";
     }
 
-    // -----------------------------
-    // 4. Formulario de edición
-    // -----------------------------
     @GetMapping("/editar/{id}")
     public String editarProducto(@PathVariable Long id, Model model) {
         ProductoDTO producto = productoService.obtenerProductoPorId(id);
@@ -60,9 +48,6 @@ public class ProductoController {
         return "productos/editar"; // Vista editar.html
     }
 
-    // -----------------------------
-    // 5. Actualizar producto
-    // -----------------------------
     @PostMapping("/actualizar/{id}")
     public String actualizarProducto(@PathVariable Long id,
             @ModelAttribute("producto") ProductoCreateDTO dto) {
